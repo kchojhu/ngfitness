@@ -22,6 +22,8 @@ import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {UiService} from './shared/ui.service';
 import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from './app.reducer';
 
 
 @NgModule({
@@ -37,7 +39,7 @@ import {SharedModule} from './shared/shared.module';
     StopTrainingComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, AppRoutingModule, ReactiveFormsModule,
+    BrowserModule, BrowserAnimationsModule, AppRoutingModule, ReactiveFormsModule, StoreModule.forRoot(reducers),
     AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, AuthModule, SharedModule
   ],
   providers: [AuthService, TrainingService, UiService],

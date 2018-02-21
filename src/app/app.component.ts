@@ -8,7 +8,7 @@ import {AuthService} from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  openSideNav: boolean = true;
+  openSideNav = true;
 
   constructor(private authService: AuthService) {
   }
