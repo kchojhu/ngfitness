@@ -24,6 +24,7 @@ import {AuthModule} from './auth/auth.module';
 import {SharedModule} from './shared/shared.module';
 import {StoreModule} from '@ngrx/store';
 import {reducers} from './app.reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -40,7 +41,10 @@ import {reducers} from './app.reducer';
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, AppRoutingModule, ReactiveFormsModule, StoreModule.forRoot(reducers),
-    AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, AuthModule, SharedModule
+    AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, AuthModule, SharedModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    })
   ],
   providers: [AuthService, TrainingService, UiService],
   bootstrap: [AppComponent],
